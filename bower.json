@@ -1,0 +1,21 @@
+{
+  "name": "sikse-pou-nou-tout-sit",
+  "description": "",
+  "main": "",
+  "authors": [
+    "nucklehead"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "popper.js": "https://unpkg.com/popper.js"
+  }
+}
