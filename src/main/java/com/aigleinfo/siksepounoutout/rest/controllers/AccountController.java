@@ -4,9 +4,7 @@ import com.aigleinfo.siksepounoutout.model.Account;
 import io.swagger.annotations.Api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.aigleinfo.siksepounoutout.repository.AccountRepository;
 
@@ -19,30 +17,30 @@ public class AccountController {
     @Autowired
     AccountRepository accountRepository;
 
-    @RequestMapping(method = RequestMethod.GET, path = "/")
+    @RequestMapping(method = RequestMethod.GET, path = "")
     public List<Account> getAccounts() {
         return accountRepository.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/")
-    public Account createAccount(Account account) {
+    @RequestMapping(method = RequestMethod.POST, path = "")
+    public Account createAccount(@RequestBody Account account) {
         return accountRepository.save(account);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/{accountID}")
-    public Account getAccountById(String accountID) {
+    public Account getAccountById(@PathVariable String accountID) {
         return accountRepository.findOne(accountID);
     }
 
 
     @RequestMapping(method = RequestMethod.PUT, path = "/{accountID}")
-    public Account updateAccount(String accountID, Account account) {
+    public Account updateAccount(@PathVariable String accountID, @RequestBody Account account) {
         account.id = accountID;
         return accountRepository.save(account);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/{accountID}")
-    public void deleteAccountById(String accountID) {
+    public void deleteAccountById(@PathVariable String accountID) {
         accountRepository.delete(accountID);
     }
 }

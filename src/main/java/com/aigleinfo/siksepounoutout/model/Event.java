@@ -11,6 +11,7 @@ public class Event {
   public String description;
   public String speaker;
   public String location;
+  public String optionID;
 
   public Event() {}
 
