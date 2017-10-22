@@ -3,17 +3,15 @@ package com.aigleinfo.siksepounoutout.rest.controllers;
 import com.aigleinfo.siksepounoutout.model.Video;
 import com.aigleinfo.siksepounoutout.repository.VideoRepository;
 import io.swagger.annotations.Api;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/video")
 @Api
 public class VideoController {
-  @Autowired
-  VideoRepository videoRepository;
+  @Autowired VideoRepository videoRepository;
 
   @RequestMapping(method = RequestMethod.GET, path = "")
   public List<Video> getVideos() {
@@ -29,7 +27,6 @@ public class VideoController {
   public Video getVideoById(@PathVariable String videoID) {
     return videoRepository.findOne(videoID);
   }
-
 
   @RequestMapping(method = RequestMethod.PUT, path = "/{videoID}")
   public Video updateVideo(@PathVariable String videoID, @RequestBody Video video) {

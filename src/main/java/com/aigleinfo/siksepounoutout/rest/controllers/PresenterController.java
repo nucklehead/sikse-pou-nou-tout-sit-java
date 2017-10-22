@@ -3,17 +3,15 @@ package com.aigleinfo.siksepounoutout.rest.controllers;
 import com.aigleinfo.siksepounoutout.model.Presenter;
 import com.aigleinfo.siksepounoutout.repository.PresenterRepository;
 import io.swagger.annotations.Api;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/presenter")
 @Api
 public class PresenterController {
-  @Autowired
-  PresenterRepository presenterRepository;
+  @Autowired PresenterRepository presenterRepository;
 
   @RequestMapping(method = RequestMethod.GET, path = "")
   public List<Presenter> getPresenters() {
@@ -30,9 +28,9 @@ public class PresenterController {
     return presenterRepository.findOne(presenterID);
   }
 
-
   @RequestMapping(method = RequestMethod.PUT, path = "/{presenterID}")
-  public Presenter updatePresenter(@PathVariable String presenterID, @RequestBody Presenter presenter) {
+  public Presenter updatePresenter(
+      @PathVariable String presenterID, @RequestBody Presenter presenter) {
     presenter.id = presenterID;
     return presenterRepository.save(presenter);
   }

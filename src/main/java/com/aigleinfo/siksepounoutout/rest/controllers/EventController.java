@@ -3,17 +3,15 @@ package com.aigleinfo.siksepounoutout.rest.controllers;
 import com.aigleinfo.siksepounoutout.model.Event;
 import com.aigleinfo.siksepounoutout.repository.EventRepository;
 import io.swagger.annotations.Api;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/event")
 @Api
 public class EventController {
-  @Autowired
-  EventRepository eventRepository;
+  @Autowired EventRepository eventRepository;
 
   @RequestMapping(method = RequestMethod.GET, path = "")
   public List<Event> getEvents() {
@@ -29,7 +27,6 @@ public class EventController {
   public Event getEventById(@PathVariable String eventID) {
     return eventRepository.findOne(eventID);
   }
-
 
   @RequestMapping(method = RequestMethod.PUT, path = "/{eventID}")
   public Event updateEvent(@PathVariable String eventID, @RequestBody Event event) {

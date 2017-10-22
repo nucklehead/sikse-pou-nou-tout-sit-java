@@ -3,17 +3,15 @@ package com.aigleinfo.siksepounoutout.rest.controllers;
 import com.aigleinfo.siksepounoutout.model.Option;
 import com.aigleinfo.siksepounoutout.repository.OptionRepository;
 import io.swagger.annotations.Api;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/option")
 @Api
 public class OptionController {
-  @Autowired
-  OptionRepository optionRepository;
+  @Autowired OptionRepository optionRepository;
 
   @RequestMapping(method = RequestMethod.GET, path = "")
   public List<Option> getOptions() {
@@ -29,7 +27,6 @@ public class OptionController {
   public Option getOptionById(@PathVariable String optionID) {
     return optionRepository.findOne(optionID);
   }
-
 
   @RequestMapping(method = RequestMethod.PUT, path = "/{optionID}")
   public Option updateOption(@PathVariable String optionID, @RequestBody Option option) {
