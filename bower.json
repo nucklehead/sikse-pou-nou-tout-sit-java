@@ -16,8 +16,5 @@
     "tests"
   ],
   "dependencies": {
-    "popper.js": "https://unpkg.com/popper.js",
-    "react": "^16.0.0",
-    "semantic": "semantic-ui#^2.2.13"
   }
 }
