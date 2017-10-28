@@ -10,11 +10,11 @@
         <!-- Page Content -->
         <div class="container">
     
-          <h1 class="my-4">Welcome to Modern Business</h1>
+          <h1 class="my-4" th:text="${optionTitle}"></h1>
           <div th:replace="fragments/optionsList :: options"></div>   
     
           <!-- Portfolio Section -->
-          <h2>Portfolio Heading</h2>
+          <h2>Sesyon ke nou fe deja</h2>
           <div th:replace="fragments/videos :: videos"></div>   
          
           <div th:replace="fragments/about :: about"></div>
